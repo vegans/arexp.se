@@ -19,20 +19,20 @@ export default class MyApp extends App {
       <>
         <Head>
           <title>Animal Reality Exposed</title>
-          <meta name="title" content="Animal Reality Exposed">
-          <meta name="description" content="Find your local A.R.E. group and materials">
+          <meta name="title" content="Animal Reality Exposed" />
+          <meta name="description" content="Find your local A.R.E. group and materials" />
 
-          <meta property="og:type" content="website">
-          <meta property="og:url" content="https://arexp.se/">
-          <meta property="og:title" content="Animal Reality Exposed">
-          <meta property="og:description" content="Find your local A.R.E. group and materials">
-          <meta property="og:image" content="https://arexp.se/metaimage.png">
+          <meta property="og:type" content="website" />
+          <meta property="og:url" content="https://arexp.se/" />
+          <meta property="og:title" content="Animal Reality Exposed" />
+          <meta property="og:description" content="Find your local A.R.E. group and materials" />
+          <meta property="og:image" content="https://arexp.se/metaimage.png" />
 
-          <meta property="twitter:card" content="summary_large_image">
-          <meta property="twitter:url" content="https://arexp.se/">
-          <meta property="twitter:title" content="Animal Reality Exposed">
-          <meta property="twitter:description" content="Find your local A.R.E. group and materials">
-          <meta property="twitter:image" content="https://arexp.se/metaimage.png">
+          <meta property="twitter:card" content="summary_large_image" />
+          <meta property="twitter:url" content="https://arexp.se/" />
+          <meta property="twitter:title" content="Animal Reality Exposed" />
+          <meta property="twitter:description" content="Find your local A.R.E. group and materials" />
+          <meta property="twitter:image" content="https://arexp.se/metaimage.png" />
 
           <link rel='stylesheet' type='text/css' href='/nprogress.css' />
         </Head>
