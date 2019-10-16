@@ -107,4 +107,13 @@ export default [
       longitude: 18.294840,
     }
   },
+  {
+    city: 'Västerås',
+    country: 'Sweden',
+    link: 'https://www.facebook.com/groups/943780172485219/',
+    coords: {
+      latitude: 59.609901,
+      longitude: 16.544809,
+    }
+  },
 ]
