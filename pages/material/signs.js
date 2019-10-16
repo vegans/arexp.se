@@ -42,9 +42,11 @@ const Signs = ({group}) => {
       <Hero>Signs</Hero>
       <Container>
         <CardColumns>
-          {files && files.map(language => <>
-            {language.files.map(file => <Sign key={file} file={file} language={language.name} />)}
-          </>)}
+          {files && files.map(language => (
+            <React.Fragment key={language.name}>
+              {language.files.map(file => <Sign key={file} file={file} language={language.name} />)}
+            </React.Fragment>
+          ))}
         </CardColumns>
       </Container>
     </Page>
