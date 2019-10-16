@@ -23,6 +23,7 @@ const AppNav = () => (
         <Link2 href="/code-of-conduct">Code of conduct</Link2>
         <NavDropdown title="Material" id="basic-nav-dropdown">
           <DropdownItem href="/material/signs">Signs</DropdownItem>
+          <a className="dropdown-item" target="_blank" href="https://foroutreach.com">Videos</a>
         </NavDropdown>
       </Nav>
     </Navbar.Collapse>
