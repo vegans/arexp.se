@@ -19,7 +19,6 @@ const AppNav = () => (
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="mr-auto">
-        <Link2 href="/about">About A.R.E</Link2>
         <Link2 href="/find-group">Find a group</Link2>
         <Link2 href="/code-of-conduct">Code of conduct</Link2>
         <NavDropdown title="Material" id="basic-nav-dropdown">

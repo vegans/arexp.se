@@ -1,7 +1,7 @@
 const express = require('express')
 const next = require('next')
 const apicache = require('apicache')
-const fs = require('fs');
+const fs = require('fs')
 const PDFImage = require('pdf-image').PDFImage
 
 const port = parseInt(process.env.PORT, 10) || 3000
@@ -39,11 +39,11 @@ app.prepare().then(() => {
         res.contentType('image/png')
         s.pipe(res)
         fs.unlinkSync(imagePath)
-      });
+      })
     }, (err) => {
       console.log('error', err)
-      res.send(err, 500);
-    });
+      res.send(err, 500)
+    })
   })
 
   server.get('/posts/:id', (req, res) => {

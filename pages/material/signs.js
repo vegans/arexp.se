@@ -4,6 +4,7 @@ import Container from 'react-bootstrap/Container'
 import CardColumns from 'react-bootstrap/CardColumns'
 import Button from 'react-bootstrap/Button'
 import Page from '../../layouts/main'
+import Hero from '../../components/Hero'
 
 function useFetch(url, options = {}) {
   const [response, setResponse] = React.useState(null)
@@ -38,6 +39,7 @@ const Signs = ({group}) => {
   const files = json && json.files
   return (
     <Page>
+      <Hero>Signs</Hero>
       <Container>
         <CardColumns>
           {files && files.map(language => <>

@@ -1,6 +1,5 @@
 import React from 'react'
 import Page from '../../layouts/main'
-import Hero from '../../components/Hero'
 import Group from '../../components/Group'
 import Link from 'next/link'
 import useCoords from '../../hooks/useCoords'
@@ -24,7 +23,6 @@ const FindGroup = () => {
   })
   return (
     <Page>
-      <Hero>Find your local group</Hero>
       <Map />
       <Text>
         {coords && (

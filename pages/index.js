@@ -6,6 +6,8 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Jumbotron from 'react-bootstrap/Jumbotron'
 import Link from 'next/link'
+import About from '../content/About.md'
+import Text from '../components/Text'
 
 const LinkButton = ({children, href, ...props}) => (
   <Link href={href} passHref>
@@ -23,11 +25,14 @@ const Home = () => (
           <Col xs lg="6" className="text-center">
             <img src="/are.png" alt="my image" style={{maxWidth: '100%'}} />
             <LinkButton variant="light" href="/find-group">Find your local group</LinkButton>
-            <LinkButton variant="outline-light" href="/about">Our values</LinkButton>
+            <LinkButton variant="outline-light" href="/code-of-conduct">Code of Conduct</LinkButton>
           </Col>
         </Row>
       </Container>
     </Jumbotron>
+    <Text width={8}>
+      <About />
+    </Text>
   </Page>
 )
 
