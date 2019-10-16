@@ -2,6 +2,7 @@ const express = require('express')
 const next = require('next')
 const apicache = require('apicache')
 const fs = require('fs');
+const PDFImage = require('pdf-image').PDFImage
 
 const port = parseInt(process.env.PORT, 10) || 3000
 const dev = process.env.NODE_ENV !== 'production'
@@ -24,9 +25,25 @@ app.prepare().then(() => {
     res.json({ files })
   })
 
-  server.get('/pdf2png/:path*', async (req, res) => {
-    const full = req.params.path + req.params[0]
-    res.json({ p: full })
+  server.get('/pdf2png/:path*', cache('2 weeks'), async (req, res) => {
+    const full = './public/signs/' + req.params.path + req.params[0]
+    if (!fs.existsSync(full)) {
+      res.status(404)
+      res.send('Missing file')
+      return
+    }
+    (new PDFImage(full)).convertPage(0).then((imagePath) => {
+      console.log('Generated temp file:', imagePath)
+      var s = fs.createReadStream(imagePath)
+      s.on('open', () => {
+        res.contentType('image/png')
+        s.pipe(res)
+        fs.unlinkSync(imagePath)
+      });
+    }, (err) => {
+      console.log('error', err)
+      res.send(err, 500);
+    });
   })
 
   server.get('/posts/:id', (req, res) => {
