@@ -1,3 +1,5 @@
+# arexp.se [![Build Status](https://travis-ci.com/vegans/arexp.se.svg?branch=master)](https://travis-ci.com/vegans/arexp.se)
+
 ### Development
 
 #### Prerequisites
