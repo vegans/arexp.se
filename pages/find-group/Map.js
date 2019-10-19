@@ -3,7 +3,7 @@ import {render} from 'react-dom';
 import MapGL, {Marker, Popup, NavigationControl, FullscreenControl} from 'react-map-gl';
 import CityInfo from './Info';
 import CityPin from './Pin';
-import {fullscreenControlStyle, navStyle} from './styles'
+import {fullscreenControlStyle, navStyle} from '../../styles'
 import CITIES from '../../data/groups.js';
 
 // TODO: Don't store this here and revoke this token after

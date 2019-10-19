@@ -1,5 +1,5 @@
 import React from 'react'
-import Page from '../../layouts/main'
+import Page from '../../layouts/Main'
 import Text from '../../components/Text'
 import Map from './Map'
 

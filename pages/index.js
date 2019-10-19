@@ -1,5 +1,5 @@
 import React from 'react'
-import Page from '../layouts/main'
+import Page from '../layouts/Main'
 import Container from 'react-bootstrap/Container'
 import Button from 'react-bootstrap/Button'
 import Row from 'react-bootstrap/Row'
