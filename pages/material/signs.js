@@ -3,7 +3,7 @@ import Card from 'react-bootstrap/Card'
 import Container from 'react-bootstrap/Container'
 import CardColumns from 'react-bootstrap/CardColumns'
 import Button from 'react-bootstrap/Button'
-import Page from '../../layouts/main'
+import Page from '../../layouts/Main'
 import Hero from '../../components/Hero'
 
 function useFetch(url, options = {}) {
