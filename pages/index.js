@@ -11,7 +11,8 @@ import About from '../content/About.md'
 import Text from '../components/Text'
 
 const Hero = styled(Jumbotron)`
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/hero/1.jpg) no-repeat center center;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(/hero/1.jpg) no-repeat center center;
   background-size: cover;
 `
 

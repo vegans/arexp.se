@@ -1,6 +1,10 @@
-import React, {Component} from 'react'
-import {render} from 'react-dom'
-import MapGL, {Marker, Popup, NavigationControl, FullscreenControl} from 'react-map-gl'
+import React from 'react'
+import MapGL, {
+  Marker,
+  Popup,
+  NavigationControl,
+  FullscreenControl,
+} from 'react-map-gl'
 import styled from '@emotion/styled'
 import CityInfo from './Info'
 import CityPin from './Pin'
