@@ -19,8 +19,11 @@ const LinkButton = ({children, href, ...props}) => (
 
 const Home = () => (
   <Page>
-    <Jumbotron style={{backgroundImage: 'url(/hero/1.jpg)'}}>
-      <Container>
+    <Jumbotron style={{
+      background: 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/hero/1.jpg) no-repeat center center',
+      backgroundSize: 'cover'
+    }}>
+      <Container style={{padding: '20px 0'}}>
         <Row className="justify-content-md-center">
           <Col xs lg="6" className="text-center">
             <img src="/are.png" alt="my image" style={{maxWidth: '100%'}} />
