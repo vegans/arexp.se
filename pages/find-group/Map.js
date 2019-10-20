@@ -21,7 +21,8 @@ const Nav = styled.div`
 `
 
 // TODO: Don't store this here and revoke this token after
-const TOKEN = 'pk.eyJ1IjoiYmVuamljayIsImEiOiJjaWlidGRuNnIwMDQ4d3FtMDFwbG1vYmE3In0.vbfWV0HNWr7wNyXrCWBEkw';
+const TOKEN =
+  'pk.eyJ1IjoiYmVuamljayIsImEiOiJjaWlidGRuNnIwMDQ4d3FtMDFwbG1vYmE3In0.vbfWV0HNWr7wNyXrCWBEkw'
 
 export default () => {
   const [popupInfo, setPopupInfo] = React.useState(null)
@@ -30,7 +31,7 @@ export default () => {
     longitude: 15.84397813661865,
     zoom: 3.5,
     bearing: 0,
-    pitch: 0
+    pitch: 0,
   })
 
   function _renderPopup() {
@@ -42,8 +43,7 @@ export default () => {
           longitude={popupInfo.coords.longitude}
           latitude={popupInfo.coords.latitude}
           closeOnClick={false}
-          onClose={() => setPopupInfo(null)}
-        >
+          onClose={() => setPopupInfo(null)}>
           <CityInfo info={popupInfo} />
         </Popup>
       )
@@ -52,7 +52,10 @@ export default () => {
 
   function _renderCityMarker(city, index) {
     return (
-      <Marker key={`marker-${index}`} longitude={city.coords.longitude} latitude={city.coords.latitude}>
+      <Marker
+        key={`marker-${index}`}
+        longitude={city.coords.longitude}
+        latitude={city.coords.latitude}>
         <CityPin size={20} onClick={() => setPopupInfo(city)} />
       </Marker>
     )
@@ -65,8 +68,7 @@ export default () => {
       height="500px"
       mapStyle="mapbox://styles/benjick/ck1t54q2a071j1clzqkqx54bj"
       onViewportChange={setViewport}
-      mapboxApiAccessToken={TOKEN}
-    >
+      mapboxApiAccessToken={TOKEN}>
       {CITIES.map(_renderCityMarker)}
 
       {_renderPopup()}

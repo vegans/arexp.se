@@ -30,8 +30,12 @@ const Home = () => (
         <Row className="justify-content-md-center">
           <Col xs lg="6" className="text-center">
             <img src="/are.png" alt="my image" style={{maxWidth: '100%'}} />
-            <LinkButton variant="light" href="/find-group">Find your local group</LinkButton>
-            <LinkButton variant="outline-light" href="/code-of-conduct">Code of Conduct</LinkButton>
+            <LinkButton variant="light" href="/find-group">
+              Find your local group
+            </LinkButton>
+            <LinkButton variant="outline-light" href="/code-of-conduct">
+              Code of Conduct
+            </LinkButton>
           </Col>
         </Row>
       </Container>
