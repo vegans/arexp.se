@@ -1,10 +1,24 @@
-import React, {Component} from 'react';
-import {render} from 'react-dom';
-import MapGL, {Marker, Popup, NavigationControl, FullscreenControl} from 'react-map-gl';
-import CityInfo from './Info';
-import CityPin from './Pin';
-import {fullscreenControlStyle, navStyle} from '../../styles'
-import CITIES from '../../data/groups.js';
+import React, {Component} from 'react'
+import {render} from 'react-dom'
+import MapGL, {Marker, Popup, NavigationControl, FullscreenControl} from 'react-map-gl'
+import styled from '@emotion/styled'
+import CityInfo from './Info'
+import CityPin from './Pin'
+import CITIES from '../../data/groups.js'
+
+const FullscreenControlContainer = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px;
+`
+
+const Nav = styled.div`
+  position: absolute;
+  top: 36;
+  left: 0;
+  padding: 10px;
+`
 
 // TODO: Don't store this here and revoke this token after
 const TOKEN = 'pk.eyJ1IjoiYmVuamljayIsImEiOiJjaWlidGRuNnIwMDQ4d3FtMDFwbG1vYmE3In0.vbfWV0HNWr7wNyXrCWBEkw';
@@ -57,12 +71,12 @@ export default () => {
 
       {_renderPopup()}
 
-      <div className="fullscreen" style={fullscreenControlStyle}>
+      <FullscreenControlContainer>
         <FullscreenControl />
-      </div>
-      <div className="nav" style={navStyle}>
+      </FullscreenControlContainer>
+      <Nav>
         <NavigationControl />
-      </div>
+      </Nav>
     </MapGL>
   )
 }
