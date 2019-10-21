@@ -1,4 +1,4 @@
-# arexp.se [![Build Status](https://travis-ci.com/vegans/arexp.se.svg?branch=master)](https://travis-ci.com/vegans/arexp.se)
+# animalrealityexposed.com [![Build Status](https://travis-ci.com/vegans/animalrealityexposed.com.svg?branch=master)](https://travis-ci.com/vegans/animalrealityexposed.com)
 
 ### Development
 
@@ -10,8 +10,8 @@
 #### Instructions
 
 ```sh
-git clone https://github.com/vegans/arexp.se
-cd arexp.se
+git clone https://github.com/vegans/animalrealityexposed.com
+cd animalrealityexposed.com
 yarn
 yarn dev
 ```
