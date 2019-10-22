@@ -11,7 +11,7 @@ Participants shall not diminish the dignity or erase the identity of any person 
 Diminution includes
 
 * Referring to any person using terminology which marginalizes them or their group.
-* Describing any person, present or otherwise using language which is mocking or derisive of another group
+* Describing any person, present or otherwise, using language which is mocking or derisive of another group
 
 Individuals violating these rules are not welcome to participate
 

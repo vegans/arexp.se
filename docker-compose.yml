@@ -3,7 +3,7 @@ arexp:
   ports:
     - "3030:3000"
   environment:
-    - VIRTUAL_HOST=aretemp.benjick.se
+    - VIRTUAL_HOST=animalrealityexposed.com,www.animalrealityexposed.com
     - VIRTUAL_PORT=3000
-    - LETSENCRYPT_HOST=aretemp.benjick.se
+    - LETSENCRYPT_HOST=animalrealityexposed.com,www.animalrealityexposed.com
     - LETSENCRYPT_EMAIL=benjick@dumfan.net
