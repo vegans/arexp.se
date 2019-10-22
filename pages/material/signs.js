@@ -1,25 +1,20 @@
 import React from 'react'
+import fetch from 'isomorphic-unfetch'
 import Card from 'react-bootstrap/Card'
 import Container from 'react-bootstrap/Container'
 import CardColumns from 'react-bootstrap/CardColumns'
 import Button from 'react-bootstrap/Button'
+import Nav from 'react-bootstrap/Nav'
+import Col from 'react-bootstrap/Col'
+import Row from 'react-bootstrap/Row'
 import Page from '../../layouts/Main'
 import Hero from '../../components/Hero'
 
-function useFetch(url, options = {}) {
-  const [response, setResponse] = React.useState(null)
-  const [loading, setLoading] = React.useState(true)
-  const setJson = json => {
-    setResponse(json)
-    setLoading(false)
-  }
-  React.useEffect(() => {
-    fetch(url, options)
-      .then(res => res.json())
-      .then(json => setJson(json))
-  }, [])
-  return [response, loading]
-}
+// TODO: Move somewhere nicer
+const dev = process.env.NODE_ENV !== 'production'
+const server = dev
+  ? 'http://localhost:3000'
+  : 'https://animalrealityexposed.com'
 
 const Sign = ({language, file}) => {
   const full = `${language}/${file}`
@@ -43,35 +38,61 @@ const Sign = ({language, file}) => {
   )
 }
 
-const Signs = ({group}) => {
-  const [json, loading] = useFetch('/pdfs')
+const Signs = ({group, json}) => {
+  const [selectedLanguage, setLanguage] = React.useState('')
   const files = json && json.files
-  if (loading) {
-    return (
-      <Page>
-        <Container>
-          <p>Loading...</p>
-        </Container>
-      </Page>
-    )
-  }
   return (
     <Page>
       <Hero>Signs</Hero>
       <Container>
-        <CardColumns>
-          {files &&
-            files.map(language => (
-              <React.Fragment key={language.name}>
-                {language.files.map(file => (
-                  <Sign key={file} file={file} language={language.name} />
+        <Row>
+          <Col sm={2}>
+            <Nav variant="pills" className="flex-column">
+              <Nav.Item>
+                <Nav.Link
+                  onClick={() => setLanguage('')}
+                  active={selectedLanguage === ''}>
+                  all
+                </Nav.Link>
+              </Nav.Item>
+              {files &&
+                files.map(language => (
+                  <Nav.Item key={language.name}>
+                    <Nav.Link
+                      onClick={() => setLanguage(language.name)}
+                      active={selectedLanguage === language.name}>
+                      {language.name}
+                    </Nav.Link>
+                  </Nav.Item>
                 ))}
-              </React.Fragment>
-            ))}
-        </CardColumns>
+            </Nav>
+          </Col>
+          <Col sm={10}>
+            <CardColumns>
+              {files &&
+                files
+                  .filter(
+                    lang => !selectedLanguage || lang.name === selectedLanguage,
+                  )
+                  .map(language => (
+                    <React.Fragment key={language.name}>
+                      {language.files.map(file => (
+                        <Sign key={file} file={file} language={language.name} />
+                      ))}
+                    </React.Fragment>
+                  ))}
+            </CardColumns>
+          </Col>
+        </Row>
       </Container>
     </Page>
   )
+}
+
+Signs.getInitialProps = async ({req}) => {
+  const res = await fetch(`${server}/pdfs`)
+  const json = await res.json()
+  return {json}
 }
 
 export default Signs
