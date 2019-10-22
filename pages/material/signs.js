@@ -14,7 +14,9 @@ function useFetch(url, options = {}) {
     setLoading(false)
   }
   React.useEffect(() => {
-    fetch(url, options).then(res => res.json()).then(json => setResponse(json))
+    fetch(url, options)
+      .then(res => res.json())
+      .then(json => setJson(json))
   }, [])
   return [response, loading]
 }
@@ -22,13 +24,20 @@ function useFetch(url, options = {}) {
 const Sign = ({language, file}) => {
   const full = `${language}/${file}`
   return (
-    <Card style={{ width: '18rem' }}>
+    <Card style={{width: '18rem'}}>
       <Card.Img variant="top" src={`/pdf2png/${full}`} />
       <Card.Body>
-        <Card.Text style={{textOverflow: 'ellipsis', whiteSpace: 'nowrap', overflow: 'hidden'}}>
+        <Card.Text
+          style={{
+            textOverflow: 'ellipsis',
+            whiteSpace: 'nowrap',
+            overflow: 'hidden',
+          }}>
           {file}
         </Card.Text>
-        <Button variant="dark" href={`/signs/${full}`} download>Download</Button>
+        <Button variant="dark" href={`/signs/${full}`} download>
+          Download
+        </Button>
       </Card.Body>
     </Card>
   )
@@ -37,16 +46,28 @@ const Sign = ({language, file}) => {
 const Signs = ({group}) => {
   const [json, loading] = useFetch('/pdfs')
   const files = json && json.files
+  if (loading) {
+    return (
+      <Page>
+        <Container>
+          <p>Loading...</p>
+        </Container>
+      </Page>
+    )
+  }
   return (
     <Page>
       <Hero>Signs</Hero>
       <Container>
         <CardColumns>
-          {files && files.map(language => (
-            <React.Fragment key={language.name}>
-              {language.files.map(file => <Sign key={file} file={file} language={language.name} />)}
-            </React.Fragment>
-          ))}
+          {files &&
+            files.map(language => (
+              <React.Fragment key={language.name}>
+                {language.files.map(file => (
+                  <Sign key={file} file={file} language={language.name} />
+                ))}
+              </React.Fragment>
+            ))}
         </CardColumns>
       </Container>
     </Page>

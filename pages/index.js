@@ -11,7 +11,8 @@ import About from '../content/About.md'
 import Text from '../components/Text'
 
 const Hero = styled(Jumbotron)`
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/hero/1.jpg) no-repeat center center;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(/hero/1.jpg) no-repeat center center;
   background-size: cover;
 `
 
@@ -30,8 +31,12 @@ const Home = () => (
         <Row className="justify-content-md-center">
           <Col xs lg="6" className="text-center">
             <img src="/are.png" alt="my image" style={{maxWidth: '100%'}} />
-            <LinkButton variant="light" href="/find-group">Find your local group</LinkButton>
-            <LinkButton variant="outline-light" href="/code-of-conduct">Code of Conduct</LinkButton>
+            <LinkButton variant="light" href="/find-group">
+              Find your local group
+            </LinkButton>
+            <LinkButton variant="outline-light" href="/code-of-conduct">
+              Code of Conduct
+            </LinkButton>
           </Col>
         </Row>
       </Container>

@@ -6,12 +6,12 @@ export default function useCoords() {
     const {longitude, latitude} = position.coords
     setCoords({
       longitude,
-      latitude
+      latitude,
     })
   }
   React.useEffect(() => {
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(displayLocationInfo);
+      navigator.geolocation.getCurrentPosition(displayLocationInfo)
     }
   }, [])
   return coords
