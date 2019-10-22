@@ -2,18 +2,23 @@ const express = require('express')
 const next = require('next')
 const apicache = require('apicache')
 const fs = require('fs')
+const redis = require('redis')
 const PDFImage = require('pdf-image').PDFImage
 
 const port = parseInt(process.env.PORT, 10) || 3000
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({dev})
 const handle = app.getRequestHandler()
-const cache = apicache.middleware
+
+const cache = dev
+  ? apicache.middleware
+  : apicache.options({redisClient: redis.createClient(6379, 'redis')})
+      .middleware
 
 app.prepare().then(() => {
   const server = express()
 
-  server.get('/pdfs', cache('120 minutes'), async (req, res) => {
+  server.get('/pdfs', cache('2 weeks'), async (req, res) => {
     const files = fs
       .readdirSync('./public/signs', {withFileTypes: true})
       .filter(maybeDir => maybeDir.isDirectory())
