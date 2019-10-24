@@ -4,5 +4,5 @@ foo:
 update:
 	git pull
 	docker-compose build
-	docker-compose down -v
+	docker-compose down
 	docker-compose up -d
