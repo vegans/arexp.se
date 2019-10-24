@@ -1,9 +1,21 @@
-arexp:
-  build: .
-  ports:
-    - "3030:3000"
-  environment:
-    - VIRTUAL_HOST=animalrealityexposed.com,www.animalrealityexposed.com
-    - VIRTUAL_PORT=3000
-    - LETSENCRYPT_HOST=animalrealityexposed.com,www.animalrealityexposed.com
-    - LETSENCRYPT_EMAIL=benjick@dumfan.net
+version: "3.7"
+services:
+  arexp:
+    build: .
+    ports:
+      - "3030:3000"
+    environment:
+      - VIRTUAL_HOST=animalrealityexposed.com,www.animalrealityexposed.com
+      - VIRTUAL_PORT=3000
+      - LETSENCRYPT_HOST=animalrealityexposed.com,www.animalrealityexposed.com
+      - LETSENCRYPT_EMAIL=benjick@dumfan.net
+      - NODE_ENV=production
+    depends_on:
+      - redis
+
+  redis:
+    image: redis
+    command: ["redis-server", "--appendonly", "yes"]
+    container_name: cache
+    expose:
+      - 6379
