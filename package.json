@@ -20,14 +20,17 @@
     "express": "^4.17.1",
     "haversine": "^1.1.1",
     "isomorphic-unfetch": "^3.0.0",
+    "konva": "^4.0.16",
     "next": "9.1.1",
     "nprogress": "^0.2.0",
     "pdf-image": "^2.0.0",
     "react": "16.10.2",
     "react-bootstrap": "^1.0.0-beta.14",
     "react-dom": "16.10.2",
+    "react-konva": "^16.10.1-0",
     "react-map-gl": "^5.0.12",
-    "redis": "^2.8.0"
+    "redis": "^2.8.0",
+    "use-image": "^1.0.5"
   },
   "devDependencies": {
     "eslint": "^6.1.0",
