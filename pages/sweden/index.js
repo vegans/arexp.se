@@ -29,7 +29,7 @@ export default () => (
         total transparancy as a third party into the lives of all animals who
         are bred to be killed.
       </p>
-      <p>If you want to run this in your country reach out to us on Faceboo</p>
+      <p>If you want to run this in your country reach out to us on Facebook</p>
       <Link href="/sweden/total-insyn">
         <a>Read our bill here</a>
       </Link>
