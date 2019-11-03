@@ -30,7 +30,8 @@
     "react-konva": "^16.10.1-0",
     "react-map-gl": "^5.0.12",
     "redis": "^2.8.0",
-    "use-image": "^1.0.5"
+    "use-image": "^1.0.5",
+    "uuid": "^3.3.3"
   },
   "devDependencies": {
     "eslint": "^6.1.0",

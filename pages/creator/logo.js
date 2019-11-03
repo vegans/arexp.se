@@ -5,6 +5,7 @@ import useImage from 'use-image'
 import Button from 'react-bootstrap/Button'
 import Page from '../../layouts/Main'
 import Text from '../../components/Text'
+import Slider from '../../components/Slider'
 
 function downloadFile(dataurl, filename) {
   var a = document.createElement('a')
@@ -26,7 +27,7 @@ export default () => {
     background.current.cache()
     background.current.getLayer().batchDraw()
     console.log(contrast, brightness, scale)
-  }, [background, kanvaImage, contrast, brightness, scale])
+  }, [background])
 
   const handleUpload = ({target}) => {
     var reader = new FileReader()
@@ -47,64 +48,62 @@ export default () => {
     <Page>
       <Text>
         <h2>Logo creator</h2>
-        <Stage width={360} height={360} ref={stage}>
-          <Layer>
-            <Image
-              image={kanvaImage}
-              draggable
-              filters={[
-                Konva.Filters.Grayscale,
-                Konva.Filters.Contrast,
-                Konva.Filters.Brighten,
-              ]}
-              ref={background}
-              scaleY={scale}
-              scaleX={scale}
-              brightness={brightness}
-              contrast={contrast}
-            />
-            <Image image={logo} listening={false} />
-          </Layer>
-        </Stage>
-        <input type="file" onChange={handleUpload} />
-        <p>
-          Scale:
-          <br />
+        <div className="custom-file">
           <input
-            type="range"
-            min="0"
-            max="5"
-            value={scale}
-            step="0.05"
-            onChange={event => setScale(event.target.value)}
+            type="file"
+            className="custom-file-input"
+            id="logoImage"
+            onChange={handleUpload}
           />
-        </p>
-        <p>
-          Brightness:
-          <br />
-          <input
-            id="slider"
-            type="range"
-            min="-1"
-            max="1"
-            step="0.05"
-            value={brightness}
-            onChange={event => setBrightness(Number(event.target.value))}
-          />
-        </p>
-        <p>
-          Contrast:
-          <br />
-          <input
-            id="contrast"
-            type="range"
-            min="-100"
-            max="100"
-            step="1"
-            value={contrast}
-            onChange={event => setContrast(Number(event.target.value))}
-          />
-        </p>
+          <label className="custom-file-label" htmlFor="logoImage">
+            Upload image then drag to reposition
+          </label>
+        </div>
+        <div style={{width: 360, margin: '0 auto'}}>
+          <Stage width={360} height={360} ref={stage}>
+            <Layer>
+              <Image
+                image={kanvaImage}
+                draggable
+                filters={[
+                  Konva.Filters.Grayscale,
+                  Konva.Filters.Contrast,
+                  Konva.Filters.Brighten,
+                ]}
+                ref={background}
+                scaleY={scale}
+                scaleX={scale}
+                brightness={brightness}
+                contrast={contrast}
+              />
+              <Image image={logo} listening={false} />
+            </Layer>
+          </Stage>
+        </div>
+        <Slider
+          value={scale}
+          onInputChange={setScale}
+          min="0"
+          max="5"
+          step="0.05">
+          Scale
+        </Slider>
+        <Slider
+          value={brightness}
+          onInputChange={setBrightness}
+          min="-1"
+          max="1"
+          step="0.05">
+          Brightness
+        </Slider>
+        <Slider
+          value={contrast}
+          onInputChange={setContrast}
+          min="-100"
+          max="100"
+          step="1">
+          Contrast
+        </Slider>
         <Button variant="secondary" onClick={download}>
           Download
         </Button>
