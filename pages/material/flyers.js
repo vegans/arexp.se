@@ -16,11 +16,11 @@ const server = dev
   ? 'http://localhost:3000'
   : 'https://animalrealityexposed.com'
 
-const Sign = ({language, file}) => {
+const Flyer = ({language, file}) => {
   const full = `${language}/${file}`
   return (
     <Card style={{width: '18rem'}}>
-      <Card.Img variant="top" src={`/pdf2png/signs/${full}`} />
+      <Card.Img variant="top" src={`/pdf2png/flyers/${full}`} />
       <Card.Body>
         <Card.Text
           style={{
@@ -30,7 +30,7 @@ const Sign = ({language, file}) => {
           }}>
           {file}
         </Card.Text>
-        <Button variant="dark" href={`/material/signs/${full}`} download>
+        <Button variant="dark" href={`/material/flyers/${full}`} download>
           Download
         </Button>
       </Card.Body>
@@ -38,7 +38,7 @@ const Sign = ({language, file}) => {
   )
 }
 
-const Signs = ({group, json}) => {
+const Flyers = ({group, json}) => {
   const [selectedLanguage, setLanguage] = React.useState('')
   const files = json && json.files
   return (
@@ -77,7 +77,11 @@ const Signs = ({group, json}) => {
                   .map(language => (
                     <React.Fragment key={language.name}>
                       {language.files.map(file => (
-                        <Sign key={file} file={file} language={language.name} />
+                        <Flyer
+                          key={file}
+                          file={file}
+                          language={language.name}
+                        />
                       ))}
                     </React.Fragment>
                   ))}
@@ -89,10 +93,10 @@ const Signs = ({group, json}) => {
   )
 }
 
-Signs.getInitialProps = async ({req}) => {
-  const res = await fetch(`${server}/pdfs/signs`)
+Flyers.getInitialProps = async ({req}) => {
+  const res = await fetch(`${server}/pdfs/flyers`)
   const json = await res.json()
   return {json}
 }
 
-export default Signs
+export default Flyers

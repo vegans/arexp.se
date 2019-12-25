@@ -28,6 +28,7 @@ const AppNav = () => (
         <Link2 href="/code-of-conduct">Code of conduct</Link2>
         <NavDropdown title="Material" id="basic-nav-dropdown">
           <DropdownItem href="/material/signs">Signs</DropdownItem>
+          <DropdownItem href="/material/flyers">Flyers</DropdownItem>
           <DropdownItem href="/creator/logo">Logo creator</DropdownItem>
           <a
             className="dropdown-item"
