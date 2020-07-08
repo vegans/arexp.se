@@ -1,0 +1,5 @@
+config:
+  animalrealityexposed.com:appName: vegans-arexp
+  animalrealityexposed.com:domainName: animalrealityexposed.com
+  digitalocean:token:
+    secure: AAABAEarqN/jVXWwieujhM6TlogC4fz6d1Sg0I4s365aEkD30VZdMm1jMGTHfIlJI7P9BSw6p0tXFxhpTN1VN6B4pP6lrWvP7vWKQaC7sVWVWLjWqIJJP9LrL7cr2UjH
