@@ -21,7 +21,7 @@
     "haversine": "^1.1.1",
     "isomorphic-unfetch": "^3.0.0",
     "konva": "^4.0.16",
-    "next": "9.1.1",
+    "next": "11.1.0",
     "nprogress": "^0.2.0",
     "pdf-image": "^2.0.0",
     "react": "16.10.2",
